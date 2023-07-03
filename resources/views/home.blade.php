@@ -33,7 +33,10 @@
                         <th scope="row">1</th>
                         <td>{{ $post->post_title }}</td>
                         <td>{{ $post->post_body }}</td>
-                        <td></td>
+                        <td>
+                            <a href="{{ url('post/view/'.$post->id) }}" class="btn btn-success btn-sm">Edit</a>
+                            <a href="{{ url('post/delete/'.$post->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
