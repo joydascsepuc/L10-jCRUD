@@ -24,10 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::where([
+        $posts = Post::with(['images'])
+        ->where([
             ['user_id', auth()->user()->id]
         ])
+        ->orderBy('id', 'DESC')
         ->get();
+
+        // dd($posts[0]->images->first()->image_name);
 
         return view('home')->with([
             'posts' => $posts

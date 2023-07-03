@@ -22,15 +22,23 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($posts as $post)
+                @foreach ($posts as $key => $post)
                     <tr>
-                        <th scope="row">1</th>
+                        <th scope="row">{{ $key + 1 }}</th>
+                        <th>
+                            @if (count($post->images) > 0)
+                                <img src="{{ asset('images/posts/'.$post->images[0]->image_name) }}" alt="post-image" class="img img-fluid" style="max-width: 100px; max-height: 100px;">
+                            @else
+                                No Image
+                            @endif
+                        </th>
                         <td>{{ $post->post_title }}</td>
                         <td>{{ $post->post_body }}</td>
                         <td>
