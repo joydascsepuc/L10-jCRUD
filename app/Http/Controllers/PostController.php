@@ -85,4 +85,15 @@ class PostController extends Controller
 
         return Redirect::to('home');
     }
+
+    public function destroy($id)
+    {
+        Post::where([
+            ['id', $id],
+            ['user_id', auth()->user()->id]
+        ])
+        ->delete();
+
+        return Redirect::to('home');
+    }
 }
