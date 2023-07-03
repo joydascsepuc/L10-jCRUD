@@ -11,6 +11,13 @@
 
 @section('content')
     <div class="container mt-5">
+        <div class="row mb-5">
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+            <div class="col-4 text-end">
+                <a href="{{ route('post-create') }}" class="btn btn-primary btn-sm">Create post</a>
+            </div>
+        </div>
         <table class="table">
             <thead>
                 <tr>
